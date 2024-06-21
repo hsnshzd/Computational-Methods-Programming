@@ -1,0 +1,22 @@
+(b)
+import numpy as np
+
+def generate_a(n):
+    a = np.diag(2*np.ones(n)) + np.diag(-1*np.ones(n-1), k=1) + np.diag(-1*np.ones(n-1), k=-1)
+    return a
+
+def generate_B(n):
+    B = (1/n**2)*np.ones(n)
+    return B
+
+def solve_system(n):
+    a = generate_a(n)
+    B = generate_B(n)
+    y = np.linalg.solve(a, B)
+    return y
+
+n = 20
+y_hatn = solve_system(n)
+print("Solution for y_hatn when n=20:", y_hatn)
+
+y_hatn=(0.025, 0.0475, 0.0675, 0.085, 0.1, 0.1125, 0.1225, 0.13, 0.135, 0.1375, 0.1375, 0.135, 0.13, 0.1225, 0.1125, 0.1, 0.085, 0.0675, 0.0475, 0.025)T
