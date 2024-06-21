@@ -1,0 +1,46 @@
+### Part (a) Solution:
+
+The given partial differential equation (PDE) is:
+
+\[ -\frac{\partial^2 y}{\partial x^2} = 1 \quad \text{on} \; (0, 1) \]
+
+with the boundary conditions:
+
+\[ y(0) = 0 \quad \text{and} \quad y(1) = 0. \]
+
+We solve this equation by integrating twice with respect to \(x\).
+
+1. Integrate once with respect to \(x\):
+\[ -\frac{d^2 y}{dx^2} = 1 \implies -\frac{dy}{dx} = x + C_1, \]
+where \(C_1\) is an integration constant.
+
+2. Integrate again with respect to \(x\):
+\[ -y = \frac{x^2}{2} + C_1 x + C_2, \]
+where \(C_2\) is another integration constant.
+
+Thus, we have:
+\[ y = -\frac{x^2}{2} - C_1 x - C_2. \]
+
+We use the boundary conditions to find \(C_1\) and \(C_2\).
+
+- At \(x = 0\):
+\[ y(0) = 0 \implies 0 = -C_2 \implies C_2 = 0. \]
+
+- At \(x = 1\):
+\[ y(1) = 0 \implies 0 = -\frac{1}{2} - C_1 \implies C_1 = -\frac{1}{2}. \]
+
+Substituting \(C_1\) and \(C_2\) back into the solution:
+\[ y = -\frac{x^2}{2} + \frac{x}{2}. \]
+
+Therefore, the solution to the PDE with the given boundary conditions is:
+\[ y(x) = \frac{x}{2} - \frac{x^2}{2}. \]
+
+### Final Answer:
+
+The solution to the equation 
+
+\[ y(0) = y(1) = 0 \quad \text{and} \quad -\frac{\partial^2 y}{\partial x^2} = 1 \quad \text{on} \; (0, 1) \]
+
+is
+
+\[ y(x) = \frac{x}{2} - \frac{x^2}{2}. \]
