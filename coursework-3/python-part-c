@@ -1,0 +1,7 @@
+For this part of Question 4:
+Utilize the argmin function from the Numpy library to identify the index corresponding to the optimal value of k. This k should yield the lowest approximation error in your SVD-based reconstruction.
+
+"This line uses NumPy's argmin() function to find the index of the minimum value in the errors list. This index corresponds to the value of k that yields the lowest approximation error in the SVD-based reconstruction. The result is stored in the variable optimal_k."
+optimal_k = np.argmin(errors)
+print("Optimal value of k:", ranks[optimal_k])
+Optimal value of k: 110
