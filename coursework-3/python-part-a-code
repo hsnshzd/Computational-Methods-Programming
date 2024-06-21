@@ -1,0 +1,20 @@
+import numpy as np
+
+# Perform Singular Value Decomposition (SVD) on S_noise
+U, Sigma, Vt = np.linalg.svd(S_noise, full_matrices=False)
+"it returns three matrices: U: Left singular vectors Sigma: Singular values (a 1-dimensional array)."
+"Vt: Right singular vectors (the transpose of the matrix of right singular vectors)."
+"The argument full_matrices=False specifies that only the essential parts of the decomposition should be returned, i.e., the compact form of the decomposition."
+
+# Create rank-50 approximation of S_noise
+rank = 50
+S_reduced = np.dot(U[:, :rank] * Sigma[:rank], Vt[:rank, :])
+"This line creates a rank-50 approximation of S_noise using the first rank singular values and vectors. It multiplies together the matrices obtained from the SVD, with only the first rank singular values and vectors used."
+# Generate and display the power spectrogram of S_reduced
+plt.figure(figsize=(10, 5))
+librosa.display.specshow(librosa.amplitude_to_db(np.abs(S_reduced), ref=np.max), y_axis='log', x_axis='time')
+"This line generates the power spectrogram of S_reduced. It first calculates the magnitude spectrogram of S_reduced, converts it to decibels, and then displays it using Librosa's specshow function. The parameters y_axis='log' and x_axis='time' specify the type of axes to be used."
+plt.title("Power Spectrogram - Rank-50 Approximation")
+plt.colorbar(format="%+2.0f dB")
+plt.savefig("spectrogram.png")
+plt.show()
