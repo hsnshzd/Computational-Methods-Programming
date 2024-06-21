@@ -1,0 +1,19 @@
+(b) (i) & (ii)
+
+import numpy as np
+def gram_schmidt (A):
+  m, n = A.shape
+  Q = np.zeros ((m, n))
+  R = np.zeros ((n, n))
+  P = np.array([[2, 0, 2/3, 0], [0, 2/3, 0, 2/5], [2/3, 0, 2/5, 0], [0, 2/5, 0, 2/7]])
+
+  for k in range (n):
+    Q[:, k] = A[:, k]
+    for i in range(k):
+      R[i, k] = (Q[:, i].T @ P @ A[:, k])
+      Q[:, k] -= R[i, K] * Q[:, i]
+    R[k, k] = np.sqrt((Q[:, k].T)@((P)@(Q[:,k])))
+    Q[:, k] /= R[k, k]
+  return Q, R
+This code makes sure that we have an orthonormal matrix with respect to P3's scalar product. It does this by replacing the dot product in the code given in the question by x^TPy (As we're given in the question) and then computing these on the columns of Q. Additionally, instead of using the built-in function np.linalg.norm to normalise these columns, we've used the 2-norm and have taken the square root of P3's scalar product 
+- In this case (Q,Q).
