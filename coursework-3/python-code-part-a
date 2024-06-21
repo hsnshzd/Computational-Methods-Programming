@@ -1,0 +1,18 @@
+# cell for your code
+errors = []
+ranks = range(50, 151)
+
+for k in ranks:
+    S_reduced = np.dot(U[:, :k] * Sigma[:k], Vt[:k, :])
+    "This line computes the rank-k approximation of the original spectrogram S_noise using the first k singular vectors and values obtained from the SVD. This approximation is stored in the variable S_reduced."
+    error = np.linalg.norm(S - S_reduced, 'fro')
+    "This line calculates the Frobenius norm error between the original spectrogram S and the rank-k approximation S_reduced using NumPy's np.linalg.norm function with the parameter 'fro', which specifies the Frobenius norm."
+    errors.append(error)
+"just creating the spectogram here"
+plt.plot(ranks, errors)
+plt.xlabel("Rank (k)")
+plt.ylabel("Frobenius Norm Error")
+plt.title("Frobenius Norm Error vs. Rank (k)")
+plt.grid(True)
+plt.savefig("error_plot.png")
+plt.show()
