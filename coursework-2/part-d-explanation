@@ -1,0 +1,9 @@
+Now reporting the result, as n increases the error norms decrease, therefore resulting in a negative correlation.
+
+We need to deduce a relation of the form E_n=O(n^s)
+where s represents the rate at which the error norm grows with n.
+
+Hence through the graph, we can deduce that as it is a straight line and linear that would mean the complexity of E_n
+would be O(n) where s = 1, which is therefore the relation. 
+
+E_n=O(n)
